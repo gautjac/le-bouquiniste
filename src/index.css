@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 247 240 222;
+  --surface: 253 249 238;
+  --ink: 28 25 20;
+  --soft: 98 89 73;
+  --line: 224 212 184;
+  --stall: 14 74 54;
+  --stall-deep: 8 48 35;
+  --tomato: 214 64 38;
+  --mustard: 244 185 58;
+  --seine: 36 94 214;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-ui="light"]) {
+    --bg: 16 24 20;
+    --surface: 26 38 32;
+    --ink: 242 235 218;
+    --soft: 184 175 154;
+    --line: 50 66 57;
+    --stall: 28 118 86;
+    --stall-deep: 10 40 30;
+    --tomato: 241 98 70;
+    --mustard: 244 185 58;
+    --seine: 122 164 255;
+    color-scheme: dark;
+  }
+}
+:root[data-ui="dark"] {
+  --bg: 16 24 20;
+  --surface: 26 38 32;
+  --ink: 242 235 218;
+  --soft: 184 175 154;
+  --line: 50 66 57;
+  --stall: 28 118 86;
+  --stall-deep: 10 40 30;
+  --tomato: 241 98 70;
+  --mustard: 244 185 58;
+  --seine: 122 164 255;
+  color-scheme: dark;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+    -webkit-tap-highlight-color: transparent;
+    /* a whisper of paper grain */
+    background-image: radial-gradient(rgb(var(--ink) / 0.045) 1px, transparent 1px);
+    background-size: 5px 5px;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-tight;
+  }
+  :focus-visible {
+    outline: 3px solid rgb(var(--seine));
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  ::selection {
+    background: rgb(var(--mustard) / 0.55);
+  }
+  button {
+    @apply cursor-pointer;
+  }
+  button:disabled {
+    @apply cursor-not-allowed;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink px-4 py-2 text-sm font-semibold
+      transition active:translate-x-[2px] active:translate-y-[2px] active:shadow-none disabled:opacity-50;
+    box-shadow: 3px 3px 0 0 rgb(var(--ink) / 0.9);
+  }
+  .btn-primary {
+    @apply btn bg-tomato text-white;
+  }
+  .btn-green {
+    @apply btn bg-stall text-white;
+  }
+  .btn-plain {
+    @apply btn bg-surface text-ink hover:bg-mustard/30;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-ink
+      transition hover:bg-ink/10 disabled:opacity-50;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border-2 border-ink/80 bg-surface px-3 py-1 text-sm font-semibold transition hover:bg-mustard/30;
+  }
+  .chip[aria-pressed="true"],
+  .chip[aria-current="true"] {
+    @apply bg-ink text-bg;
+  }
+  .card {
+    @apply rounded-2xl border-2 border-ink bg-surface;
+    box-shadow: 4px 4px 0 0 rgb(var(--ink) / 0.9);
+  }
+  .field {
+    @apply w-full rounded-full border-2 border-ink bg-surface px-4 py-2.5 text-base placeholder:text-soft/70;
+  }
+  /* The round vermilion "GRATUIT" price sticker. */
+  .sticker {
+    @apply inline-flex items-center justify-center rounded-full bg-tomato text-[10px] font-extrabold uppercase leading-none tracking-wider text-white;
+    transform: rotate(-8deg);
+  }
+  .skeleton {
+    background: linear-gradient(90deg, rgb(var(--line) / 0.5) 25%, rgb(var(--line) / 0.9) 50%, rgb(var(--line) / 0.5) 75%);
+    background-size: 200% 100%;
+    @apply animate-shimmer rounded-xl;
+  }
+  .scroll-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--ink) / 0.35) transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Inside the reader, chrome takes its colours from the reading theme, not the app theme. */
+[data-reader] .btn-ghost {
+  color: inherit;
+}
+[data-reader] .btn-ghost:hover {
+  background: color-mix(in srgb, currentColor 14%, transparent);
+}
+
+/* Safe-area padding for notched phones. */
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}

@@ -1,0 +1,44 @@
+{
+  "_note": "Hand-written from the documented Gutendex schema (gutendex.com) — the live API was unreachable while this was written.",
+  "count": 64,
+  "next": "https://gutendex.com/books/?page=2&search=austen",
+  "previous": null,
+  "results": [
+    {
+      "id": 1342,
+      "title": "Pride and Prejudice",
+      "authors": [{ "name": "Austen, Jane", "birth_year": 1775, "death_year": 1817 }],
+      "subjects": ["Courtship -- Fiction", "England -- Fiction", "Domestic fiction"],
+      "languages": ["en"],
+      "copyright": false,
+      "formats": {
+        "application/epub+zip": "https://www.gutenberg.org/ebooks/1342.epub3.images",
+        "text/html": "https://www.gutenberg.org/ebooks/1342.html.images",
+        "image/jpeg": "https://www.gutenberg.org/cache/epub/1342/pg1342.cover.medium.jpg"
+      },
+      "download_count": 98765
+    },
+    {
+      "id": 13846,
+      "title": "Emma",
+      "authors": [{ "name": "Austen, Jane", "birth_year": 1775, "death_year": 1817 }],
+      "subjects": ["Matchmaking -- Fiction"],
+      "languages": ["fr"],
+      "copyright": true,
+      "formats": {
+        "application/pdf": "https://www.gutenberg.org/files/13846/13846-pdf.pdf"
+      },
+      "download_count": 120
+    },
+    {
+      "id": 99999,
+      "title": "An Audio-Only Oddity",
+      "authors": [],
+      "subjects": [],
+      "languages": ["en"],
+      "copyright": false,
+      "formats": { "text/plain": "https://www.gutenberg.org/ebooks/99999.txt.utf-8" },
+      "download_count": 1
+    }
+  ]
+}

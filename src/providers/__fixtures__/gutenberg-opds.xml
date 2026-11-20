@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hand-written from the documented Gutenberg OPDS shape; the live feed was down for maintenance. -->
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:opds="http://opds-spec.org/2010/catalog">
+  <id>https://www.gutenberg.org/ebooks/search.opds/?query=hugo</id>
+  <title>Search results</title>
+  <link rel="next" type="application/atom+xml" href="/ebooks/search.opds/?query=hugo&amp;start_index=26"/>
+  <entry>
+    <id>https://www.gutenberg.org/ebooks/search.opds/?query=hugo</id>
+    <title>Search</title>
+    <content type="text">navigation entry, not a book</content>
+  </entry>
+  <entry>
+    <id>https://www.gutenberg.org/ebooks/135.opds</id>
+    <title>Les Misérables</title>
+    <content type="text">Hugo, Victor, 1802-1885</content>
+  </entry>
+  <entry>
+    <id>https://www.gutenberg.org/ebooks/2610.opds</id>
+    <title>Notre-Dame de Paris</title>
+    <content type="text">Hugo, Victor</content>
+  </entry>
+</feed>
